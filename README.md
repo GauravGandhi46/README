@@ -6,6 +6,31 @@ The code provided is attempting to decrypt a given ciphertext using a simple XOR
 
 The `decrypt` function takes two inputs, `ciphertext` and `key`, and returns the decrypted text. It iterates through each character in the ciphertext, XORs it with the corresponding character in the key, and appends the result to the `decrypted_text` string.
 
+```python
+# XOR Decryption Process
+
+The following Python code performs the decryption of a given ciphertext using an XOR (exclusive OR) encryption/decryption algorithm. Let's break down the code step by step:
+
+- `for i in range(len(ciphertext)):`: This initiates a loop that iterates over each character in the `ciphertext`. It processes each character from the first to the last in the ciphertext.
+
+- `decrypted_text += ...`: This part appends the result of the decryption to the `decrypted_text` string. It's building the decrypted text character by character.
+
+- `chr(ord(ciphertext[i]) ^ ord(key[i % len(key)])`: This is the core of the decryption process. It's an XOR (exclusive OR) operation between the corresponding characters in the `ciphertext` and the `key`.
+
+  - `ciphertext[i]`: This represents the current character in the `ciphertext`.
+  - `key[i % len(key)]`: This represents the character in the `key` that corresponds to the current position `i` in the `ciphertext`. The use of `i % len(key)` ensures that if the `key` is shorter than the `ciphertext`, it repeats the key cyclically (wraps around).
+
+  - `ord(...)`: This converts the character to its Unicode code point value, which is an integer.
+
+  - `^`: This is the XOR operator. It performs a bitwise XOR operation between the two integers.
+
+  - `chr(...)`: This converts the result of the XOR operation back to a character.
+
+By XORing the `ciphertext` with the `key` character by character, you are reversing the encryption process. XOR is used because it's a reversible operation. When you XOR the same value again, you get back the original value. In this case, the original plaintext characters are being recovered and appended to `decrypted_text`.
+
+This process continues for all characters in the `ciphertext`, resulting in the decryption of the entire `ciphertext` into `decrypted_text`.
+```
+
 ## Input Variables
 
 - `ciphertext`: This is the given encrypted text that we want to decrypt. It contains special characters and letters.
