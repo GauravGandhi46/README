@@ -75,11 +75,11 @@ for i in range(len(ciphertext)):
     key1 += possible_key1
     key2 += possible_key2
 
-# Save Key 1 to a file
+# Save Key 1 to a file in binary format
 with open("sentence_1.key", "wb") as key1_file:
     key1_file.write(key1.encode('utf-8'))
 
-# Save Key 2 to a file
+# Save Key 2 to a file in binary format
 with open("sentence_2.key", "wb") as key2_file:
     key2_file.write(key2.encode('utf-8'))
 
